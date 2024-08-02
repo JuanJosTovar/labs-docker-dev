@@ -23,10 +23,11 @@ Status: Downloaded newer image for python:3.9
 docker.io/library/python:3.9
 
 # Ejecutar el contenedor de Ubuntu en modo interactivo
+@JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker run -it ubuntu bash
 root@79ea6271f1de:/#
 
-# Ejecuta un servidor web Apache en segundo plano, mapeando el puerto 8000 del host al puerto 80 del contenedor
-
+# Pull de images de Apache
+@JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker pull httpd
 Using default tag: latest
 latest: Pulling from library/httpd
 efc2b5ad9eec: Pull complete 
@@ -39,5 +40,27 @@ Digest: sha256:932ac36fabe1d2103ed3edbe66224ed2afe0041b317bcdb6f5d9be63594f0030
 Status: Downloaded newer image for httpd:latest
 docker.io/library/httpd:latest
 
+# Ejecuta un servidor web Apache en segundo plano, mapeando el puerto 8000 del host al puerto 80 del contenedor
+@JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker run -d -p 8000:80 httpd
 7f4fa62c439e94a6433f1fd0de5cc4c8c60a6116209c1c9929fb450e5f1f56bd
 
+
+# Visualizar todos los contenedores
+@JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND              CREATED          STATUS                     PORTS                                   NAMES
+7f4fa62c439e   httpd     "httpd-foreground"   4 minutes ago    Up 4 minutes               0.0.0.0:8000->80/tcp, :::8000->80/tcp   beautiful_babbage
+79ea6271f1de   ubuntu    "bash"               12 minutes ago   Exited (0) 6 minutes ago                                           thirsty_hugle
+
+
+# Eliminar contenedor Ubuntu
+@JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker rm 79ea6271f1de
+79ea6271f1de
+
+# Visualizar que se haya eliminado
+@JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND              CREATED         STATUS         PORTS                                   NAMES
+7f4fa62c439e   httpd     "httpd-foreground"   6 minutes ago   Up 6 minutes   0.0.0.0:8000->80/tcp, :::8000->80/tcp   beautiful_babbage
+
+# Eliminar todos los contenedores detenidos
+@JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker container prune -f
+Total reclaimed space: 0B
