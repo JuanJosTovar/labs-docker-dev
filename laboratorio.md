@@ -155,4 +155,20 @@ be2fb24e55357c01e0943da2294403e14fcbe74342ffb4ae99f5e1fece24389a
  => => writing image sha256:37bf7693932ffaa063e7add6c2216ea0d22c0a15d139c47e7ff37a930d7225e3                          0.0s
  => => naming to docker.io/library/ubuntu-updated:latest
 
- 
+# Ejecutar un script Python al iniciar el contenedor
+@JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker build -t python:3.9 .
+[+] Building 4.7s (8/8) FINISHED                                                                            docker:default
+ => [internal] load build definition from Dockerfile                                                                  0.0s
+ => => transferring dockerfile: 110B                                                                                  0.0s
+ => [internal] load metadata for docker.io/library/python:3.9                                                         0.0s
+ => [internal] load .dockerignore                                                                                     0.0s
+ => => transferring context: 2B                                                                                       0.0s
+ => [1/3] FROM docker.io/library/python:3.9                                                                           0.8s
+ => [internal] load build context                                                                                     0.2s
+ => => transferring context: 30B                                                                                      0.0s
+ => [2/3] WORKDIR /app                                                                                                0.2s
+ => [3/3] COPY script.py .                                                                                            0.2s
+ => exporting to image                                                                                                2.9s
+ => => exporting layers                                                                                               2.8s
+ => => writing image sha256:b4f8815064ac9efa6716e547744a32625f91e23a1c7e6df52cacff2c10f608ef                          0.0s
+ => => naming to docker.io/library/python:3.9    
