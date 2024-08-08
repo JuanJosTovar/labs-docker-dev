@@ -136,3 +136,23 @@ Total reclaimed space: 0B
 # Copiar un archivo HTML local a una imagen de Nginx
  @JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker run -d -p 81:81 my-nginx:latest
 be2fb24e55357c01e0943da2294403e14fcbe74342ffb4ae99f5e1fece24389a
+
+# Usar WORKDIR y copiar un archivo 
+@JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker build -t ubuntu-updated:latest .
+[+] Building 1.7s (8/8) FINISHED                                                                            docker:default
+ => [internal] load build definition from Dockerfile                                                                  0.1s
+ => => transferring dockerfile: 86B                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                      0.0s
+ => [internal] load .dockerignore                                                                                     0.0s
+ => => transferring context: 2B                                                                                       0.0s
+ => [1/3] FROM docker.io/library/ubuntu:latest                                                                        0.0s
+ => [internal] load build context                                                                                     0.1s
+ => => transferring context: 31B                                                                                      0.0s
+ => CACHED [2/3] WORKDIR /app                                                                                         0.0s
+ => [3/3] COPY myfile.txt .                                                                                           0.2s
+ => exporting to image                                                                                                0.9s
+ => => exporting layers                                                                                               0.8s
+ => => writing image sha256:37bf7693932ffaa063e7add6c2216ea0d22c0a15d139c47e7ff37a930d7225e3                          0.0s
+ => => naming to docker.io/library/ubuntu-updated:latest
+
+ 
