@@ -80,5 +80,17 @@ Total reclaimed space: 0B
  => => writing image sha256:66d1e4f0dc0b92485369fc7caeaefe890abb619a700c2c98f17d9ad11497ce4a                          0.0s
  => => naming to docker.io/library/ubuntu-updated:latest
 
-
- 
+# Instalar Nginx en Ubuntu
+ @JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker build -t ubuntu-updated:latest .
+[+] Building 13.6s (6/6) FINISHED                                                                           docker:default
+ => [internal] load build definition from Dockerfile                                                                  0.1s
+ => => transferring dockerfile: 138B                                                                                  0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                      0.0s
+ => [internal] load .dockerignore                                                                                     0.1s
+ => => transferring context: 2B                                                                                       0.0s
+ => CACHED [1/2] FROM docker.io/library/ubuntu:latest                                                                 0.0s
+ => [2/2] RUN apt-get update && apt-get install -y nginx                                                             12.2s
+ => exporting to image                                                                                                1.0s
+ => => exporting layers                                                                                               0.9s
+ => => writing image sha256:a83fbc34f1b55499c5575eada69e4a692db0f5f1192b9f469b4bcd9d313de0a6                          0.0s
+ => => naming to docker.io/library/ubuntu-updated:latest 
