@@ -64,3 +64,21 @@ CONTAINER ID   IMAGE     COMMAND              CREATED         STATUS         POR
 # Eliminar todos los contenedores detenidos
 @JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker container prune -f
 Total reclaimed space: 0B
+
+# Comando para contruir imagen con ubuntu
+@JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker build -t ubuntu-updated:latest .
+[+] Building 9.5s (6/6) FINISHED                                                                            docker:default
+ => [internal] load build definition from Dockerfile                                                                  0.2s
+ => => transferring dockerfile: 96B                                                                                   0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                      0.0s
+ => [internal] load .dockerignore                                                                                     0.2s
+ => => transferring context: 2B                                                                                       0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest                                                                        0.1s
+ => [2/2] RUN apt-get update && apt-get upgrade -y                                                                    7.8s
+ => exporting to image                                                                                                0.7s
+ => => exporting layers                                                                                               0.5s
+ => => writing image sha256:66d1e4f0dc0b92485369fc7caeaefe890abb619a700c2c98f17d9ad11497ce4a                          0.0s
+ => => naming to docker.io/library/ubuntu-updated:latest
+
+
+ 
