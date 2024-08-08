@@ -128,4 +128,11 @@ Total reclaimed space: 0B
  => exporting to image                                                                                                0.1s
  => => exporting layers                                                                                               0.0s
  => => writing image sha256:c62dc78350be8f72f188405594459be6a9fd50aad1d50929b70bc1b2070590e7                          0.0s
- => => naming to docker.io/library/my-nginx:latest   
+ => => naming to docker.io/library/my-nginx:latest
+
+
+ # Tema 2: Instrucciones comunes en Dockerfile
+
+# Copiar un archivo HTML local a una imagen de Nginx
+ @JuanJosTovar ➜ /workspaces/labs-docker-dev (main) $ docker run -d -p 81:81 my-nginx:latest
+be2fb24e55357c01e0943da2294403e14fcbe74342ffb4ae99f5e1fece24389a
